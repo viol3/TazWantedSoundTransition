@@ -24,5 +24,9 @@ public abstract class SoundTransitorBase : MonoBehaviour
             return;
         }
         _currentClipIndex = (_currentClipIndex + count) % _audioClips.Length;
+        if(_currentClipIndex < 0)
+        {
+            _currentClipIndex = _audioClips.Length - 1;
+        }
     }
 }
