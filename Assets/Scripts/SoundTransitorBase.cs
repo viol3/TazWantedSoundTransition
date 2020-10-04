@@ -17,7 +17,7 @@ public abstract class SoundTransitorBase : MonoBehaviour
         }
     }
     protected abstract void UpdateSourceClip();
-    protected virtual void RaiseIndex(int count)
+    public virtual void RaiseIndex(int count)
     {
         if(_audioClips.Length == 0)
         {
@@ -28,5 +28,12 @@ public abstract class SoundTransitorBase : MonoBehaviour
         {
             _currentClipIndex = _audioClips.Length - 1;
         }
+        UpdateSourceClip();
+    }
+
+    public virtual void SetIndex(int index)
+    {
+        _currentClipIndex = index;
+        UpdateSourceClip();
     }
 }
